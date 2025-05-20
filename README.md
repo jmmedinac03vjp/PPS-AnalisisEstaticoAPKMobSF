@@ -181,18 +181,73 @@ En nuestro caso vemos que sólo está verificada la versión
 | android.permission.USE_CREDENTIALS        | peligroso       | usar credenciales de autenticación    | Permite solicitar tokens de autenticación.                                                                                                                    |                 
 | android.permission.WRITE_EXTERNAL_STORAGE | peligroso       | leer/modificar/eliminar almacenamiento externo | Permite escribir en el almacenamiento externo.                                                                                                                 |       
 
+### Security análisis
 
-![](images/image11.png)
-![](images/image11.png)
-![](images/image11.png)
+Aquí encontraremos información sobre los problemas de seguridad encontrados en diferentes secciones:
+- Seguridad de la Red
+- Análisis del Certificado
+- Análisis del AndroidManifest.xml
+- Análisis del código
+- Análisis de los binarios.
+- Análisis NIAP
+- Análisis de los Archivos
+- Análisis de la BBDD.
 
+![](images/image12.png)
+
+
+En el caso del **Análisis del certificado**, nos informa, que aunque está firmado, sólo tiene la firma V1, por lo que es vulnerable a la **Vulnerabilidad Janus** de Android,que permite la modificación de aplicaciones sin afectar su firma.
+
+Si vemos el **Análisis del AndroidManifest** vemos 13 problemas de segurida, 6 de ellos con criticidad alta por ejemplo:
+
+- La aplicación se puede instalar en una versión vulnerable de Android sin parches Android 4.0.3-4.0.4, [minSdk=15]
+- Depuración Habilitada Para la Aplicación [android:debuggable=true]
+- Actividad (com.android.insecurebankv2.PostLogin) es vulnerable a StrandHogg 2.0
+- Actividad (com.android.insecurebankv2.PostLogin) no está protegido.[android:exported=true]
+
+![](images/image13.png)
+
+### Análisis de Malware
+
+Dentro de este apartado podemos encontrar información variada. 
+En nuestro caso, en la sección de **Abused Permisions** nos indica que abusamos de 7 permisos. Este abuso puede ser utilizado por diferente Malware.
+![](images/image14.png)
+
+### Reconnnaisasance
+
+Aquí podemos ver información de :
+
+- **URLs** con las URLs que van a recopilar información.
+- **Haardcoded Secrets** Con los posibles contraseñas, tokens etc que aparecen en el código
+- **Strings** con las cadenas de caracteres presentes en el código. Podemos visualizarlas.
+
+### Components
+
+Aquí podemos ver todos los componentes de la aplicación:
+
+![](images/image15.png)
+
+- **Activities**
+- **Services**
+- **Receivers**
+- **Providers**
+- **Librerias**
+- **Archivos**
+
+### Informe
+
+![](images/image16.png)
+
+Por último podemos visualizar o descargar el informe o reporte completo en formato pdf.
+
+![](images/image17.png)
 
 ## 📘 Recursos adicionales
 
 - [MobSF Documentation](https://mobsf.github.io/docs/)
 - [OWASP Mobile Top 10](https://owasp.org/www-project-mobile-top-10/)
 - [InsecureBankv2 GitHub](https://github.com/dineshshetty/Android-InsecureBankv2)
-
+-
 ---
 
 ## ⚠️ Disclaimer
