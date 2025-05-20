@@ -152,9 +152,9 @@ Tenemos dos secciones:
 	- Las fuentes .smali del paquete (Smali es una representación en lenguaje de bajo nivel del código de bajo nivel Dalvik)
 	- El paquete apk
 
-### Siner Certificate
+### Singned Certificate
 
-![](image10.png)
+![](images/image10.png)
 
   Aquí obtenemos información de certificado de quien firma el paquete, así como detalles de la firma y certificado:
 - Si el paquete está firmado.
@@ -165,21 +165,27 @@ En nuestro caso vemos que sólo está verificada la versión
 
 ### Permisions
 
-![](image11.png)
+![](images/image11.png)
 
   En esta sección podemos ver los permisos solicitados por la aplicación a Android. Podemos ver en la siguiente tabla información sobre el permiso y su clasificación en normal o peligrosa
 
-| PERMISO                                   | CLASIFICACIÓN | INFORMACIÓN                          | DESCRIPCIÓN                                                                                                                                                   | CÓDIGO DE MAPEOS |
-|-------------------------------------------|----------------|---------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------|
-| android.permission.ACCESS_COARSE_LOCATION | peligroso       | ubicación aproximada (por red)        | Permite acceder a fuentes de ubicación aproximadas, como la red móvil, para determinar una ubicación estimada del dispositivo. Aplicaciones maliciosas pueden usar esto para saber dónde estás. |                  |
-| android.permission.ACCESS_NETWORK_STATE   | normal          | ver el estado de la red               | Permite a la aplicación ver el estado de todas las redes.                                                                                                     |                  |
-| android.permission.GET_ACCOUNTS           | peligroso       | listar cuentas                        | Permite acceder a la lista de cuentas en el servicio de cuentas del dispositivo.                                                                              |                  |
-| android.permission.INTERNET               | normal          | acceso completo a Internet            | Permite a la aplicación crear conexiones de red.                                                                                                              |                  |
-| android.permission.READ_CONTACTS          | peligroso       | leer datos de contactos               | Permite leer todos los datos de contactos almacenados en el dispositivo. Aplicaciones maliciosas pueden usar esto para enviar tus datos a terceros.          |                  |
-| android.permission.READ_PROFILE           | peligroso       | leer el perfil del usuario            | Permite leer los datos del perfil personal del usuario.                                                                                                       |                  |
-| android.permission.SEND_SMS               | peligroso       | enviar mensajes SMS                   | Permite enviar mensajes SMS. Aplicaciones maliciosas podrían hacerte incurrir en gastos enviando mensajes sin tu autorización.                               |                  |
-| android.permission.USE_CREDENTIALS        | peligroso       | usar credenciales de autenticación    | Permite solicitar tokens de autenticación.                                                                                                                    |                  |
-| android.permission.WRITE_EXTERNAL_STORAGE | peligroso       | leer/modificar/eliminar almacenamiento externo | Permite escribir en el almacenamiento externo.                                                                                                                 |                  |
+| PERMISO                                   | CLASIFICACIÓN | INFORMACIÓN                          | DESCRIPCIÓN                                                                                                                                                   |
+|-------------------------------------------|----------------|---------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| android.permission.ACCESS_COARSE_LOCATION | peligroso       | ubicación aproximada (por red)        | Permite acceder a fuentes de ubicación aproximadas, como la red móvil, para determinar una ubicación estimada del dispositivo. Aplicaciones maliciosas pueden usar esto para saber dónde estás. |                  
+| android.permission.ACCESS_NETWORK_STATE   | normal          | ver el estado de la red               | Permite a la aplicación ver el estado de todas las redes.                                                                                                     |                  
+| android.permission.GET_ACCOUNTS           | peligroso       | listar cuentas                        | Permite acceder a la lista de cuentas en el servicio de cuentas del dispositivo.                                                                              |                  
+| android.permission.INTERNET               | normal          | acceso completo a Internet            | Permite a la aplicación crear conexiones de red.                                                                                                              |                  
+| android.permission.READ_CONTACTS          | peligroso       | leer datos de contactos               | Permite leer todos los datos de contactos almacenados en el dispositivo. Aplicaciones maliciosas pueden usar esto para enviar tus datos a terceros.          |                  
+| android.permission.READ_PROFILE           | peligroso       | leer el perfil del usuario            | Permite leer los datos del perfil personal del usuario.                                                                                                       |                 
+| android.permission.SEND_SMS               | peligroso       | enviar mensajes SMS                   | Permite enviar mensajes SMS. Aplicaciones maliciosas podrían hacerte incurrir en gastos enviando mensajes sin tu autorización.                               |                  
+| android.permission.USE_CREDENTIALS        | peligroso       | usar credenciales de autenticación    | Permite solicitar tokens de autenticación.                                                                                                                    |                 
+| android.permission.WRITE_EXTERNAL_STORAGE | peligroso       | leer/modificar/eliminar almacenamiento externo | Permite escribir en el almacenamiento externo.                                                                                                                 |       
+
+
+![](images/image11.png)
+![](images/image11.png)
+![](images/image11.png)
+
 
 ## 📘 Recursos adicionales
 
