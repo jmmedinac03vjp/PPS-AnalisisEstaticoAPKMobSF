@@ -40,7 +40,7 @@ Este repositorio contiene una guía paso a paso para realizar un análisis está
    ```
 
 2. Compila el APK con Android Studio o utiliza una versión precompilada (si está disponible).
-
+  Puedes descargarla desde el repositorio git del desarrollador: <https://github.com/dineshshetty/Android-InsecureBankv2/blob/master/InsecureBankv2.apk>
 > ⚠️ **Nota:** Esta aplicación es intencionadamente insegura. No la instales en dispositivos personales o en entornos de producción.
 
 ---
@@ -58,6 +58,15 @@ docker build -t mobsf .
 docker run -it -p 8000:8000 mobsf
 ```
 
+También puedes hacerlo directamente  levantando la imagen de dockerhub:
+
+```bash
+docker run -it --rm -p 8080:8000 opensecurity/mobile-security-framework-mobsf:latest
+```
+![](images/image1.png)
+
+Como hemos creado un contenedor interactivo, `docker run -it`, el terminal quedará abierto. En él podremos ver 
+
 ### Opción 2: Instalación manual
 
 Sigue la guía oficial en: https://mobsf.github.io/docs/#/installation
@@ -71,9 +80,14 @@ Una vez iniciado MobSF (ya sea por Docker o manualmente), accede a través de tu
 ```
 http://localhost:8000
 ```
+En la pantalla de autenticación usamos el usuario `mobsf` y la contraseña por defecto: `mobsf`.
+
+![](images/image2.png)
+
 
 Verás la interfaz web de MobSF, lista para analizar APKs.
 
+![](images/image3.png)
 ---
 
 ## 5. Análisis estático con MobSF
@@ -82,8 +96,13 @@ Verás la interfaz web de MobSF, lista para analizar APKs.
 
 1. Accede a `http://localhost:8000`.
 2. Arrastra el archivo `InsecureBankv2.apk` o selecciónalo manualmente.
+
+![](images/image4.png)
+
 3. Espera a que se complete el análisis (unos segundos/minutos).
 4. Se generará un informe detallado automáticamente.
+
+![](images/image5.png)
 
 ---
 
@@ -100,6 +119,67 @@ MobSF genera un informe con múltiples secciones, entre ellas:
 > Revisa especialmente los apartados que marcan hallazgos en rojo o con severidad alta.
 
 ---
+
+Veamos la información sección por sección:
+
+### 6-1 Information
+
+![](images/image6.png)
+
+Aquí podemos ver információn sobre el **archivo** (nombre, tamaño, funciones hash) y del **paquete** (nombre del paquete, y versión de SKD soportadas y versión del paquete).
+
+También podemos ver información sobre puntuación de seguridad, donde vemos que es una puntuación muy baja 28/100.
+
+Si le damos al enlace `MobSF Scorecard` podemos ver la información básica resumida de forma visual.
+
+![](images/image7.png)
+
+### Scan Options
+
+![](images/image8.png)
+
+Tenemos dos secciones:
+- Scan Options con opciones para 
+	- Reescanear la aplicación.
+	- Hacer análisis dinámico.
+	- Ver los logs generados. Podemos filtrarlos para buscar los que queramos e incluso descargarlos.
+
+![](images/image9.png)
+
+- Decompiled code donde podemos ver/descargar:
+	- El AndroidManifest.xml
+	- Las fuentes .java del paquete
+	- Las fuentes .smali del paquete (Smali es una representación en lenguaje de bajo nivel del código de bajo nivel Dalvik)
+	- El paquete apk
+
+### Siner Certificate
+
+![](image10.png)
+
+  Aquí obtenemos información de certificado de quien firma el paquete, así como detalles de la firma y certificado:
+- Si el paquete está firmado.
+- Firma de diferentes versiones app Android ([puedes ver maś información sobre firma de apps Android aquí](https://source.android.com/docs/security/features/apksigning?hl=es-419)
+- Detalles de las firmas del paquete.
+
+En nuestro caso vemos que sólo está verificada la versión
+
+### Permisions
+
+![](image11.png)
+
+  En esta sección podemos ver los permisos solicitados por la aplicación a Android. Podemos ver en la siguiente tabla información sobre el permiso y su clasificación en normal o peligrosa
+
+| PERMISO                                   | CLASIFICACIÓN | INFORMACIÓN                          | DESCRIPCIÓN                                                                                                                                                   | CÓDIGO DE MAPEOS |
+|-------------------------------------------|----------------|---------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------|
+| android.permission.ACCESS_COARSE_LOCATION | peligroso       | ubicación aproximada (por red)        | Permite acceder a fuentes de ubicación aproximadas, como la red móvil, para determinar una ubicación estimada del dispositivo. Aplicaciones maliciosas pueden usar esto para saber dónde estás. |                  |
+| android.permission.ACCESS_NETWORK_STATE   | normal          | ver el estado de la red               | Permite a la aplicación ver el estado de todas las redes.                                                                                                     |                  |
+| android.permission.GET_ACCOUNTS           | peligroso       | listar cuentas                        | Permite acceder a la lista de cuentas en el servicio de cuentas del dispositivo.                                                                              |                  |
+| android.permission.INTERNET               | normal          | acceso completo a Internet            | Permite a la aplicación crear conexiones de red.                                                                                                              |                  |
+| android.permission.READ_CONTACTS          | peligroso       | leer datos de contactos               | Permite leer todos los datos de contactos almacenados en el dispositivo. Aplicaciones maliciosas pueden usar esto para enviar tus datos a terceros.          |                  |
+| android.permission.READ_PROFILE           | peligroso       | leer el perfil del usuario            | Permite leer los datos del perfil personal del usuario.                                                                                                       |                  |
+| android.permission.SEND_SMS               | peligroso       | enviar mensajes SMS                   | Permite enviar mensajes SMS. Aplicaciones maliciosas podrían hacerte incurrir en gastos enviando mensajes sin tu autorización.                               |                  |
+| android.permission.USE_CREDENTIALS        | peligroso       | usar credenciales de autenticación    | Permite solicitar tokens de autenticación.                                                                                                                    |                  |
+| android.permission.WRITE_EXTERNAL_STORAGE | peligroso       | leer/modificar/eliminar almacenamiento externo | Permite escribir en el almacenamiento externo.                                                                                                                 |                  |
 
 ## 📘 Recursos adicionales
 
