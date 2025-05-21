@@ -118,9 +118,9 @@ MobSF genera un informe con múltiples secciones, entre ellas:
 
 > Revisa especialmente los apartados que marcan hallazgos en rojo o con severidad alta.
 
----
 
 Veamos la información sección por sección:
+
 
 ### 6-1 Information
 
@@ -134,23 +134,25 @@ Si le damos al enlace `MobSF Scorecard` podemos ver la información básica resu
 
 ![](images/image7.png)
 
+
 ### Scan Options
 
 ![](images/image8.png)
 
 Tenemos dos secciones:
-- Scan Options con opciones para 
+- **Scan Options** con opciones para 
 	- Reescanear la aplicación.
 	- Hacer análisis dinámico.
 	- Ver los logs generados. Podemos filtrarlos para buscar los que queramos e incluso descargarlos.
 
 ![](images/image9.png)
 
-- Decompiled code donde podemos ver/descargar:
-	- El AndroidManifest.xml
-	- Las fuentes .java del paquete
-	- Las fuentes .smali del paquete (Smali es una representación en lenguaje de bajo nivel del código de bajo nivel Dalvik)
-	- El paquete apk
+- **Decompiled code** donde podemos ver/descargar:
+	- El `AndroidManifest.xml`
+	- Las fuentes `.java` del paquete
+	- Las fuentes `.smali` del paquete (Smali es una representación en lenguaje de bajo nivel del código de bajo nivel Dalvik)
+	- El paquete `apk`
+
 
 ### Singned Certificate
 
@@ -163,11 +165,13 @@ Tenemos dos secciones:
 
 En nuestro caso vemos que sólo está verificada la versión
 
+
 ### Permisions
 
-![](images/image11.png)
 
   En esta sección podemos ver los permisos solicitados por la aplicación a Android. Podemos ver en la siguiente tabla información sobre el permiso y su clasificación en normal o peligrosa
+
+![](images/image11.png)
 
 | PERMISO                                   | CLASIFICACIÓN | INFORMACIÓN                          | DESCRIPCIÓN                                                                                                                                                   |
 |-------------------------------------------|----------------|---------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -180,6 +184,7 @@ En nuestro caso vemos que sólo está verificada la versión
 | android.permission.SEND_SMS               | peligroso       | enviar mensajes SMS                   | Permite enviar mensajes SMS. Aplicaciones maliciosas podrían hacerte incurrir en gastos enviando mensajes sin tu autorización.                               |                  
 | android.permission.USE_CREDENTIALS        | peligroso       | usar credenciales de autenticación    | Permite solicitar tokens de autenticación.                                                                                                                    |                 
 | android.permission.WRITE_EXTERNAL_STORAGE | peligroso       | leer/modificar/eliminar almacenamiento externo | Permite escribir en el almacenamiento externo.                                                                                                                 |       
+
 
 ### Security análisis
 
@@ -207,19 +212,23 @@ Si vemos el **Análisis del AndroidManifest** vemos 13 problemas de segurida, 6 
 
 ![](images/image13.png)
 
+
 ### Análisis de Malware
 
 Dentro de este apartado podemos encontrar información variada. 
 En nuestro caso, en la sección de **Abused Permisions** nos indica que abusamos de 7 permisos. Este abuso puede ser utilizado por diferente Malware.
+
 ![](images/image14.png)
 
-### Reconnnaisasance
+
+### Reconnaisasance
 
 Aquí podemos ver información de :
 
 - **URLs** con las URLs que van a recopilar información.
 - **Haardcoded Secrets** Con los posibles contraseñas, tokens etc que aparecen en el código
 - **Strings** con las cadenas de caracteres presentes en el código. Podemos visualizarlas.
+
 
 ### Components
 
@@ -234,13 +243,17 @@ Aquí podemos ver todos los componentes de la aplicación:
 - **Librerias**
 - **Archivos**
 
-### Informe
 
-![](images/image16.png)
+### Informe
 
 Por último podemos visualizar o descargar el informe o reporte completo en formato pdf.
 
+![](images/image16.png)
+
+
 ![](images/image17.png)
+
+---
 
 ## 📘 Recursos adicionales
 
