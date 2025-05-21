@@ -61,7 +61,7 @@ docker run -it -p 8000:8000 mobsf
 También puedes hacerlo directamente  levantando la imagen de dockerhub:
 
 ```bash
-docker run -it --rm -p 8080:8000 opensecurity/mobile-security-framework-mobsf:latest
+docker run -it --rm -p 8000:8000 opensecurity/mobile-security-framework-mobsf:latest
 ```
 ![](images/image1.png)
 
